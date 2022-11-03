@@ -72,6 +72,7 @@ const App = () => {
           onChange={handlePassword2hange}
         ></input>
         <input type="submit" value="Register"></input>
+        {/* {password1 === password2 ? { display: "none" } : { display: "block" }} */}
       </form>
     </div>
   );

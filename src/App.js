@@ -10,6 +10,9 @@ const App = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [validation, setValidation] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [close, setClose] = useState(false);
+
   // const [verification, setVerification] = useState(false);
 
   const handleNameChange = (event) => {
@@ -31,39 +34,44 @@ const App = () => {
   };
 
   const handleSubmit = (event) => {
-    if (password1 !== password2 && !password1 && !password2) {
+    event.preventDefault();
+    if (password1 !== password2) {
+      setErrorMessage("Les mots de passes ne sont pas indentiques");
       setValidation(false);
-      alert("Vos deux mots de passes ne sont pas indetiques!");
     } else {
       setValidation(true);
     }
-    event.preventDefault();
   };
 
   return (
     <>
       <div className="app">
         <h1>{validation === false ? "Create un account" : "Results"}</h1>
-
-        <Form
-          name={name}
-          email={email}
-          password1={password1}
-          password2={password2}
-          validation={validation}
-          handleEmailChange={handleEmailChange}
-          handleNameChange={handleNameChange}
-          handlePassword1Change={handlePassword1Change}
-          handlePassword2hange={handlePassword2hange}
-          handleSubmit={handleSubmit}
-        />
-        <StepTwo
-          name={name}
-          email={email}
-          password1={password1}
-          handleSubmit={handleSubmit}
-          validation={validation}
-        />
+        {validation === false ? (
+          <Form
+            name={name}
+            email={email}
+            password1={password1}
+            password2={password2}
+            validation={setValidation}
+            errorMessage={errorMessage}
+            handleEmailChange={handleEmailChange}
+            handleNameChange={handleNameChange}
+            handlePassword1Change={handlePassword1Change}
+            handlePassword2hange={handlePassword2hange}
+            handleSubmit={handleSubmit}
+            close={close}
+            setClose={setClose}
+          />
+        ) : (
+          <StepTwo
+            name={name}
+            email={email}
+            password1={password1}
+            handleSubmit={handleSubmit}
+            setValidation={setValidation}
+          />
+        )}
       </div>
 
       <Footer />

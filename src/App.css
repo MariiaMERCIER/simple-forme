@@ -1,5 +1,6 @@
 #root {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 h1 {
   text-align: center;
@@ -20,8 +21,21 @@ h1 {
   display: flex;
   flex-direction: column;
 }
+.eyeclosed {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.eye {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
 
 input {
+  box-sizing: border-box;
+  padding-left: 15px;
   border-radius: 10px;
   width: 350px;
   height: 60px;
@@ -48,11 +62,24 @@ input {
   padding: 15px;
   border-radius: 10px;
 }
-.button {
+input.button {
+  width: 350px;
+  height: 60px;
   background-color: darkorchid;
   font-size: 24px;
   color: white;
   font-weight: 700;
+}
+
+button {
+  width: 350px;
+  height: 60px;
+  background-color: darkorchid;
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
 }
 .titre {
   margin-bottom: 5px;
@@ -67,6 +94,10 @@ footer {
   justify-content: center;
 }
 
-span {
+footer span {
   font-weight: 700;
+}
+
+.error {
+  font-size: 14px;
 }

@@ -1,21 +1,21 @@
-const StepTwo = ({ name, email, password1, handleSubmit, validation }) => {
+const StepTwo = ({ name, email, password1, handleSubmit, setValidation }) => {
   return (
-    <form
-      className="stepTwo"
-      onSubmit={handleSubmit}
-      style={validation === true ? { display: "flex" } : { display: "none" }}
-    >
+    <form onSubmit={handleSubmit} className="stepTwo">
       <div className="recap">
         <p>Name: {name} </p>
         <p>Email: {email}</p>
         <p>Password: {password1}</p>
       </div>
       <div>
-        <input
+        <button
+          type="button"
           className="button"
-          type="submit"
-          value="Edit your information"
-        ></input>
+          onClick={() => {
+            setValidation(false);
+          }}
+        >
+          Edit your information
+        </button>
       </div>
     </form>
   );

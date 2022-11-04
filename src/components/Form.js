@@ -80,7 +80,7 @@ const Form = ({
       <input className="button" type="submit" value="Register"></input>
 
       <span className="error" style={{ color: "red" }}>
-        {errorMessage && "Les mots de passes ne sont pas indetiques"}
+        {errorMessage && "Passwords are not the same"}
       </span>
     </form>
   );

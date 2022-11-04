@@ -47,7 +47,7 @@ const App = () => {
   return (
     <>
       <div className="app">
-        <h1>{validation === false ? "Create un account" : "Results"}</h1>
+        <h1>{validation === false ? "Create an account" : "Results"}</h1>
         {validation === false ? (
           <Form
             name={name}

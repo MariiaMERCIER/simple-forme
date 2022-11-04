@@ -9,8 +9,10 @@ const Form = ({
   handlePassword1Change,
   handlePassword2hange,
   handleSubmit,
-  close,
-  setClose,
+  close1,
+  setClose1,
+  close2,
+  setClose2,
 }) => {
   return (
     <form className="form-conteiner" onSubmit={handleSubmit}>
@@ -35,7 +37,7 @@ const Form = ({
       <div className="eyeclosed">
         <input
           className="password"
-          type="password"
+          type={close1 === true ? "text" : "password"}
           placeholder="JFeWdr4/e32"
           value={password1}
           name="password1"
@@ -45,10 +47,10 @@ const Form = ({
         <div className="eye">
           <i
             onClick={() => {
-              setClose(!close);
+              setClose1(!close1);
             }}
             className={
-              close === true ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
+              close1 === true ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
             }
           ></i>
         </div>
@@ -56,7 +58,7 @@ const Form = ({
       <span className="titre">Confirm your Password</span>
       <div className="eyeclosed">
         <input
-          type={close === true ? "text" : "password"}
+          type={close2 === true ? "text" : "password"}
           className="password"
           placeholder="JFeWdr4/e32"
           value={password2}
@@ -67,10 +69,10 @@ const Form = ({
         <div className="eye">
           <i
             onClick={() => {
-              setClose(!close);
+              setClose2(!close2);
             }}
             className={
-              close === true ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
+              close2 === true ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
             }
           ></i>
         </div>

@@ -10,8 +10,9 @@ const App = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [validation, setValidation] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [close, setClose] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [close1, setClose1] = useState(false);
+  const [close2, setClose2] = useState(false);
 
   // const [verification, setVerification] = useState(false);
 
@@ -36,7 +37,7 @@ const App = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password1 !== password2) {
-      setErrorMessage("Les mots de passes ne sont pas indentiques");
+      setErrorMessage(true);
       setValidation(false);
     } else {
       setValidation(true);
@@ -60,8 +61,10 @@ const App = () => {
             handlePassword1Change={handlePassword1Change}
             handlePassword2hange={handlePassword2hange}
             handleSubmit={handleSubmit}
-            close={close}
-            setClose={setClose}
+            close1={close1}
+            setClose1={setClose1}
+            close2={close2}
+            setClose2={setClose2}
           />
         ) : (
           <StepTwo
